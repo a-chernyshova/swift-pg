@@ -12,6 +12,7 @@ struct ContactsScreen: View {
     let contactList: Array<ContactModel>
     
     var body: some View {
+
         NavigationView{
             List(contactList) {
                 contact in

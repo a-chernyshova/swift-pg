@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContactModel: Identifiable {
+
     var id: UUID
     let firstName: String
     let secondName: String
