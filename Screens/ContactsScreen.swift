@@ -13,7 +13,7 @@ struct ContactsScreen: View {
     
     var body: some View {
         NavigationView{
-            List(contactList) {
+            List(contactList.sorted{$0.firstName < $1.firstName}) {
                 contact in
                 NavigationLink(destination: ContactPageScreen(contactModel: contact, isAccountBlocked: false)) {
                     Text("\(contact.firstName) \(contact.secondName)")
@@ -30,9 +30,11 @@ struct ContactsScreen_Previews: PreviewProvider {
         let contactList: Array<ContactModel> = [
             ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558"),
             ContactModel(id: UUID(), firstName: "Darya", secondName: "Chernyshova", phoneNumber: "+7 (960) 239-9161"),
-            ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (962) 208-9021")
+            ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (962) 208-9021"),
+            ContactModel(id: UUID(), firstName: "Teacher", secondName: "", phoneNumber: "+7 (921) 318-3970"),
+            ContactModel(id: UUID(), firstName: "Stiven", secondName: "Spilberg", phoneNumber: "+1 (565) 318-3970")
         ]
-        
         ContactsScreen(contactList: contactList)
+            .environmentObject(CallScreenManager())
     }
 }

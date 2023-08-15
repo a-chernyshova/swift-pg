@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContactPageScreen: View {
     
-    //MARK: contact model
+    /// contact model
     var contactModel: ContactModel
+    
+    @EnvironmentObject
+    var callScreenManager: CallScreenManager
     
     let x = 85.0
     
@@ -38,7 +41,10 @@ struct ContactPageScreen: View {
             HStack {
                 Spacer()
                 ContactPageActionButton(buttonTitle: "Message", buttonImgSystemName: "message.fill", action:{})
-                ContactPageActionButton(buttonTitle: "Call", buttonImgSystemName: "phone.fill", action: {})
+                ContactPageActionButton(buttonTitle: "Call", buttonImgSystemName: "phone.fill", action: {
+                    callScreenManager.contact = contactModel;
+                    callScreenManager.isScreenVisible = true
+                })
                 ContactPageActionButton(buttonTitle: "Video", buttonImgSystemName: "video.fill", action: {})
                 ContactPageActionButton(buttonTitle: "eMail", buttonImgSystemName: "envelope.fill", action: {})
                 Spacer()
@@ -79,5 +85,6 @@ struct ContactPageScreen_Previews: PreviewProvider {
         )
         
         ContactPageScreen(contactModel: neo, isAccountBlocked: false)
+            .environmentObject(CallScreenManager())
     }
 }
