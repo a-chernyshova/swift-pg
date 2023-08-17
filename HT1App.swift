@@ -14,10 +14,10 @@ struct HT1App: App {
     var callScreenManager = CallScreenManager()
     
     let contactList: Array<ContactModel> = [
-        ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558"),
-        ContactModel(id: UUID(), firstName: "Darya", secondName: "Chernyshova", phoneNumber: "+7 (960) 239-9161"),
-        ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (962) 208-9021"),
-        ContactModel(id: UUID(), firstName: "Teacher", secondName: "", phoneNumber: "+7 (921) 318-3970"),
+        ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+45 (151) 660-55555"),
+        ContactModel(id: UUID(), firstName: "Darya", secondName: "Che", phoneNumber: "+7 (960) 222-9966"),
+        ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (962) 200-9011"),
+        ContactModel(id: UUID(), firstName: "Teacher", secondName: "", phoneNumber: "+7 (911) 338-3370"),
         ContactModel(id: UUID(), firstName: "Stiven", secondName: "Spilberg", phoneNumber: "+1 (565) 318-3970")
     ]
     
