@@ -9,8 +9,6 @@ import SwiftUI
 
 struct CallPageActionButton: View {
     // MARK: Properties
-    /// todo: how about to collect a dict with all expected param and just use instead of many individual?
-    /// {true: {"text": "mute", "button":"mic.fill"}, false: {"text": "unmute", "button": "mic.slash"}}????
     let buttonImgSystemName: String
     let oppositeButtonImgSystemName: String
     var buttonText: String?
@@ -18,9 +16,10 @@ struct CallPageActionButton: View {
     let backgroundColor: Color
     @State
     var state: Bool
+    let action: () -> Void
     
     var body: some View {
-        Button(action: { state.toggle() }, label: {
+        Button(action: { action() }, label: {
             VStack{
                 if (state) {
                     ZStack{
@@ -68,7 +67,8 @@ struct CallPageActionButton_Previews: PreviewProvider {
             buttonText: "mute",
             oppositeText: "unmute",
             backgroundColor: .gray,
-            state: false
+            state: false,
+            action: {}
         )
             .previewLayout(.sizeThatFits)
             .background(.gray)
