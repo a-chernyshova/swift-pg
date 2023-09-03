@@ -10,7 +10,7 @@ import SwiftUI
 struct CallPageScreen: View {
     //MARK: props
     var contactModel: ContactModel
-//    var phoneNumber: contactModel.phoneNumber
+    
     @EnvironmentObject
     var callScreenManager: CallScreenManager
     
@@ -77,10 +77,9 @@ struct CallPageScreen: View {
                                          state: true,
                                          action: {
                                             callScreenManager.contact = nil
-                                            callScreenManager.isScreenVisible = false
+//                                            callScreenManager.isScreenVisible = false
                         })
                     .padding(.vertical, 64)
-
                 }
                 Spacer()
             }
@@ -91,7 +90,7 @@ struct CallPageScreen: View {
 struct CallPageScreen_Previews: PreviewProvider {
     static var previews: some View {
         let neo = ContactModel(
-            id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558"
+            id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558", imageName: "2", isAccountBlocked: false
         )
         CallPageScreen(contactModel: neo).environmentObject(CallScreenManager())
     }
