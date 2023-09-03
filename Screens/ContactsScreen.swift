@@ -29,9 +29,9 @@ struct ContactsScreen_Previews: PreviewProvider {
     static var previews: some View {
         let contactList: Array<ContactModel> = [
             ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+45 (551) 222-57558"),
-            ContactModel(id: UUID(), firstName: "Darya", secondName: "Che", phoneNumber: "+7 (960) 239-9161"),
-            ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (969) 200-9066"),
-            ContactModel(id: UUID(), firstName: "Teacher", secondName: "", phoneNumber: "+7 (929) 300-3370"),
+            ContactModel(id: UUID(), firstName: "Darya", secondName: "Che", phoneNumber: "+7 (900) 200-9161"),
+            ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (960) 200-9060"),
+            ContactModel(id: UUID(), firstName: "Teacher", secondName: "", phoneNumber: "+7 (920) 300-3300"),
             ContactModel(id: UUID(), firstName: "Stiven", secondName: "Spilberg", phoneNumber: "+1 (565) 318-3970")
         ]
         ContactsScreen(contactList: contactList)
