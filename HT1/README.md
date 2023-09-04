@@ -1,2 +1,0 @@
-# swift-pg
-study project
