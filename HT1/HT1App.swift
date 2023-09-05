@@ -24,6 +24,7 @@ struct HT1App: App {
                     CallScreen(contactModel: contact)
                 }
             }.environmentObject(callScreenManager)
+            .environmentObject(contactsManager)
         }
     }
 }

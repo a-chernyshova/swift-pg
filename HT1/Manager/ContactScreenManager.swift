@@ -63,10 +63,7 @@ class ContactScreenManager: ObservableObject {
     }
     
 //    let contactList: Array<ContactModel> = [
-//        ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558", imageName: "1"),
-//        ContactModel(id: UUID(), firstName: "Darya", secondName: "Chernyshova", phoneNumber: "+7 (960) 239-9161", imageName: "1"),
-//        ContactModel(id: UUID(), firstName: "Mom", secondName: "", phoneNumber: "+7 (962) 208-9021", imageName: "1"),
-//        ContactModel(id: UUID(), firstName: "Teacher", secondName: "", phoneNumber: "+7 (921) 318-3970", imageName: "1"),
-//        ContactModel(id: UUID(), firstName: "Stiven", secondName: "Spilberg", phoneNumber: "+1 (565) 318-3970", imageName: "1")
+//        ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-11111", imageName: "1"),
+//        ContactModel(id: UUID(), firstName: "Darya", secondName: "Che", phoneNumber: "+7 (960) 239-2222", imageName: "1")
 //    ]
 }
