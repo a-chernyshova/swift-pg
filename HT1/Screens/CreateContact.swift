@@ -31,9 +31,9 @@ struct CreateContact_Previews: PreviewProvider {
     static var previews: some View {
         CreateContact(newContact: ContactModel(
                                     id: UUID(),
-                                    firstName: "Anastasia",
-                                    secondName: "Che",
-                                    phoneNumber: "+49 (151) 630-57558",
+                                    firstName: "Thomas",
+                                    secondName: "Anderson",
+                                    phoneNumber: "+49 (151) 630-55555",
                                     imageName: "1",
                                     isAccountBlocked: false
         ),
