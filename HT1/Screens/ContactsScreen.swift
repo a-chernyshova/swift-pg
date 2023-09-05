@@ -19,7 +19,7 @@ struct ContactsScreen: View {
         NavigationView{
             List {
                 Section(header: ListHeader(), footer: ListFooter()) {
-                    ForEach(contactsManager.contacts) { contact in
+                    ForEach(filteredNames) { contact in
                         NavigationLink(
                             destination: ContactPageScreen(contactModel: contact)
                                 .toolbar{
