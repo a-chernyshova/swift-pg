@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		374EFF212AA3939C00C53F12 /* ContactEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EFF202AA3939C00C53F12 /* ContactEditScreen.swift */; };
 		374EFF232AA3CAD500C53F12 /* CreateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EFF222AA3CAD500C53F12 /* CreateContact.swift */; };
+		37AF32D22AB4B45400DB08FE /* FavoritsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF32D12AB4B45400DB08FE /* FavoritsScreen.swift */; };
+		37AF32D42AB4BF0500DB08FE /* ContactCommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF32D32AB4BF0500DB08FE /* ContactCommonButton.swift */; };
 		8A6566712A7BA62D007732F7 /* ContactPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6566702A7BA62D007732F7 /* ContactPageScreen.swift */; };
 		8A6566732A7BA6BC007732F7 /* ContactPageActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6566722A7BA6BC007732F7 /* ContactPageActionButton.swift */; };
 		8A6566752A817AED007732F7 /* CallPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6566742A817AED007732F7 /* CallPageScreen.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		374EFF202AA3939C00C53F12 /* ContactEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditScreen.swift; sourceTree = "<group>"; };
 		374EFF222AA3CAD500C53F12 /* CreateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContact.swift; sourceTree = "<group>"; };
+		37AF32D12AB4B45400DB08FE /* FavoritsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsScreen.swift; sourceTree = "<group>"; };
+		37AF32D32AB4BF0500DB08FE /* ContactCommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCommonButton.swift; sourceTree = "<group>"; };
 		8A6566702A7BA62D007732F7 /* ContactPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPageScreen.swift; sourceTree = "<group>"; };
 		8A6566722A7BA6BC007732F7 /* ContactPageActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPageActionButton.swift; sourceTree = "<group>"; };
 		8A6566742A817AED007732F7 /* CallPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPageScreen.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				8A6566812A8AC869007732F7 /* CallScreen.swift */,
 				8A6566852A8AD2B0007732F7 /* DigitButton.swift */,
 				8AB611DD2A8FD033009640BA /* ContactListFooterView.swift */,
+				37AF32D32AB4BF0500DB08FE /* ContactCommonButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				8A65667A2A85873A007732F7 /* ContactsScreen.swift */,
+				37AF32D12AB4B45400DB08FE /* FavoritsScreen.swift */,
 				8A6566702A7BA62D007732F7 /* ContactPageScreen.swift */,
 				374EFF202AA3939C00C53F12 /* ContactEditScreen.swift */,
 				8A6566742A817AED007732F7 /* CallPageScreen.swift */,
@@ -339,8 +345,10 @@
 				8A65667B2A85873A007732F7 /* ContactsScreen.swift in Sources */,
 				8A6566792A818220007732F7 /* CallPageActionButton.swift in Sources */,
 				8AB611E02A8FDBAE009640BA /* KeyPadManager.swift in Sources */,
+				37AF32D42AB4BF0500DB08FE /* ContactCommonButton.swift in Sources */,
 				8A65667E2A85895D007732F7 /* ContactModel.swift in Sources */,
 				374EFF212AA3939C00C53F12 /* ContactEditScreen.swift in Sources */,
+				37AF32D22AB4B45400DB08FE /* FavoritsScreen.swift in Sources */,
 				8A6566752A817AED007732F7 /* CallPageScreen.swift in Sources */,
 				8A6566772A817E4B007732F7 /* BlockContactButton.swift in Sources */,
 				8A6566862A8AD2B0007732F7 /* DigitButton.swift in Sources */,

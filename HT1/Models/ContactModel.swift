@@ -14,4 +14,20 @@ struct ContactModel: Identifiable {
     var phoneNumber: String
     var imageName: String
     var isAccountBlocked: Bool
+    var isFavorite: Bool
+}
+
+extension ContactModel {
+    // creatin a new empty contact
+    static func createNewContact() -> ContactModel {
+        ContactModel(
+            id: UUID(),
+            firstName: "",
+            secondName: "",
+            phoneNumber: "",
+            imageName: "",
+            isAccountBlocked: false,
+            isFavorite: false
+        )
+    }
 }
