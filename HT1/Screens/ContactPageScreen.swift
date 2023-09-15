@@ -93,7 +93,7 @@ struct ContactPageScreen: View {
 struct ContactPageScreen_Previews: PreviewProvider {
     static var previews: some View {
         let neo = ContactModel(
-            id: UUID(), firstName: "Anastasia", secondName: "Che", phoneNumber: "+49 (111) 630-57123", imageName: "1", isAccountBlocked: true, isFavorite: true
+            id: UUID(), firstName: "Thomas", secondName: "Anders", phoneNumber: "+49 (151) 630-55555", imageName: "1", isAccountBlocked: false, isFavorite: true
         )
         
         ContactPageScreen(contactModel: neo)

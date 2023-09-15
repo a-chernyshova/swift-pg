@@ -77,7 +77,7 @@ struct CallPageScreen: View {
                                          state: true,
                                          action: {
                                             callScreenManager.contact = nil
-//                                            callScreenManager.isScreenVisible = false
+                                            callScreenManager.isScreenVisible = false
                         })
                     .padding(.vertical, 64)
                 }
