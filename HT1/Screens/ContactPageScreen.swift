@@ -35,7 +35,6 @@ struct ContactPageScreen: View {
                     } else {
                         Image(contactModel.imageName)
                             .resizable()
-    //                        .cornerRadius(90.0)
                             .clipShape(Circle())
                             .frame(width: 152, height: 152)
                     }
@@ -49,7 +48,7 @@ struct ContactPageScreen: View {
                 ContactPageActionButton(buttonTitle: "Message", buttonImgSystemName: "message.fill", action:{})
                 ContactPageActionButton(buttonTitle: "Call", buttonImgSystemName: "phone.fill", action: {
                     callScreenManager.contact = contactModel
-//                    callScreenManager.isScreenVisible = true
+                    callScreenManager.isScreenVisible = true
                 })
                 ContactPageActionButton(buttonTitle: "Video", buttonImgSystemName: "video.fill", action: {})
                 ContactPageActionButton(buttonTitle: "eMail", buttonImgSystemName: "envelope.fill", action: {})
@@ -77,22 +76,16 @@ struct ContactPageScreen: View {
                     .frame(height: 66)
             }
             
-            BlockContactButton(isAccountBlocked: contactModel.isAccountBlocked)
+            BlockContactButton(contact: contactModel)
                 .padding(10)
                 .frame(width: 300)
             Spacer()
-            Button(action: { contactManager.deleteContact(contactToDelete: contactModel)}) {
-                // todo: how do I switch back to list of all contacts?
-                ZStack {
-                    Rectangle()
-                        .cornerRadius(8.0)
-                        .foregroundColor(.red)
-                    Text("Delete the user")
-                        .foregroundColor(.black)
-                }
+            Button(action: { contactManager.addToFavourites(toFavourites: contactModel)}) {
+                ContactCommonButton(buttonColor: .gray, textColor: .white, buttonText: "Add to favourites")
             }
-            .padding(.horizontal, 50)
-                .frame(height: 46)
+            Button(action: { contactManager.deleteContact(contactToDelete: contactModel)}) {
+                ContactCommonButton(buttonColor: .red, textColor: .black, buttonText: "Delete the user")
+            }
         }.foregroundColor(.white)
     }
 }
@@ -100,7 +93,7 @@ struct ContactPageScreen: View {
 struct ContactPageScreen_Previews: PreviewProvider {
     static var previews: some View {
         let neo = ContactModel(
-            id: UUID(), firstName: "Anastasia", secondName: "Che", phoneNumber: "+49 (151) 630-57558", imageName: "1", isAccountBlocked: false
+            id: UUID(), firstName: "Anastasia", secondName: "Che", phoneNumber: "+49 (111) 630-57123", imageName: "1", isAccountBlocked: true, isFavorite: true
         )
         
         ContactPageScreen(contactModel: neo)

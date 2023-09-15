@@ -9,12 +9,13 @@ import SwiftUI
 
 struct BlockContactButton: View {
     @State
-    var isAccountBlocked: Bool
+    var contact: ContactModel
+    
     
     var body: some View {
-        Button(action: { isAccountBlocked.toggle() }, label: {
+        Button(action: { contact.isAccountBlocked.toggle() }, label: {
             ZStack{
-                if isAccountBlocked {
+                if contact.isAccountBlocked {
                     Rectangle()
                         .cornerRadius(8.0)
                         .foregroundColor(.gray)
@@ -35,7 +36,10 @@ struct BlockContactButton: View {
 
 struct BlockContactButton_Previews: PreviewProvider {
     static var previews: some View {
-        BlockContactButton(isAccountBlocked: false)
+        let neo = ContactModel(
+            id: UUID(), firstName: "Anastasia", secondName: "Che", phoneNumber: "+49 (111) 630-11111", imageName: "1", isAccountBlocked: false, isFavorite: true
+        )
+        BlockContactButton(contact: neo)
             .padding(20)
     }
 }

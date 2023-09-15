@@ -14,7 +14,7 @@ struct CreateContact: View {
     let saveContact: (ContactModel) -> Void
     
     var body: some View {
-        Text("WIP: a contact create form will be here").foregroundColor(.red)
+        Text("Create a new contact").foregroundColor(.black)
         Form{
             Section{
                 TextField("First Name", text: $newContact.firstName)
@@ -35,7 +35,8 @@ struct CreateContact_Previews: PreviewProvider {
                                     secondName: "Che",
                                     phoneNumber: "+49 (151) 630-57558",
                                     imageName: "1",
-                                    isAccountBlocked: false
+                                    isAccountBlocked: false,
+                                    isFavorite: true
         ),
         saveContact: { _ in })
     }
