@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CallPageScreen: View {
     //MARK: props
-    var contactModel: ContactModel
+    // support calling existing contact or a new phonenumber, one or another should be passed to the view
+    var contactModel: ContactModel?
+    var phoneNumber: String?
     
     @EnvironmentObject
     var callScreenManager: CallScreenManager
@@ -39,7 +41,7 @@ struct CallPageScreen: View {
                     }
                 }.padding(.vertical, 42)
                 HStack{
-                    Text(contactModel.phoneNumber)
+                    Text(chooseTextToDisplay())
                         .font(.largeTitle)
                         .foregroundColor(.white)
                 }
@@ -85,6 +87,16 @@ struct CallPageScreen: View {
             }
         }
     }
+    
+    func chooseTextToDisplay() -> String {
+        if (contactModel != nil) {
+            return "\(contactModel!.firstName) \(contactModel!.secondName)"
+        } else if (phoneNumber != nil) {
+            return (phoneNumber)!
+        } else {
+            return "ERROR"
+        }
+    }
 }
 
 struct CallPageScreen_Previews: PreviewProvider {
@@ -92,6 +104,7 @@ struct CallPageScreen_Previews: PreviewProvider {
         let neo = ContactModel(
             id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558", imageName: "2", isAccountBlocked: false, isFavorite: true
         )
-        CallPageScreen(contactModel: neo).environmentObject(CallScreenManager())
+//        CallPageScreen(contactModel: neo).environmentObject(CallScreenManager())
+        CallPageScreen(phoneNumber: "+49 150 444 345").environmentObject(CallScreenManager())
     }
 }

@@ -12,6 +12,8 @@ class CallScreenManager: ObservableObject {
     /// Model for a contact
     @Published
     var contact: ContactModel? = nil
+    @Published
+    var phoneNumber: String? = nil
     
     @Published
     var isScreenVisible: Bool = false
