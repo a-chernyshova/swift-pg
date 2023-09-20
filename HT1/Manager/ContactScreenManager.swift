@@ -66,6 +66,8 @@ class ContactScreenManager: ObservableObject {
     }
     
     func unfavoure(indexSet: IndexSet) {
+        // offset came from filtered array of contacts
+        // but better to store in a separate array IDs of favorites, and implement cascade remove from all
         indexSet.forEach { (i) in
             contacts[i].isFavorite = false
         }

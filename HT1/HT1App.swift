@@ -33,10 +33,10 @@ struct HT1App: App {
                             Label("Keypad", systemImage: "keyboard")
                         }
                 }
-                // change need to be done here, to support calling a new number ???
-                if callScreenManager.isScreenVisible, let contact = callScreenManager.contact {
-                    CallScreen(contactModel: contact)
+                if callScreenManager.isScreenVisible {
+                    CallPageScreen()
                 }
+                
             }
             .environmentObject(callScreenManager)
             .environmentObject(contactsManager)

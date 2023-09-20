@@ -47,8 +47,7 @@ struct ContactPageScreen: View {
                 Spacer()
                 ContactPageActionButton(buttonTitle: "Message", buttonImgSystemName: "message.fill", action:{})
                 ContactPageActionButton(buttonTitle: "Call", buttonImgSystemName: "phone.fill", action: {
-                    callScreenManager.contact = contactModel
-                    callScreenManager.isScreenVisible = true
+                    callScreenManager.state = .contact(contactModel)
                 })
                 ContactPageActionButton(buttonTitle: "Video", buttonImgSystemName: "video.fill", action: {})
                 ContactPageActionButton(buttonTitle: "eMail", buttonImgSystemName: "envelope.fill", action: {})

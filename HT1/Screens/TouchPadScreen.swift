@@ -59,8 +59,7 @@ struct TouchPadScreen: View {
                                      backgroundColor: .green,
                                      state: true,
                                      action: {
-                                        callScreenManager.phoneNumber = tempString
-                                        callScreenManager.isScreenVisible = true
+                    callScreenManager.state = .phoneNumber(tempString)
                     })
                 .padding(.vertical, 64)
             }
