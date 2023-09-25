@@ -35,8 +35,7 @@ struct CreateContact_Previews: PreviewProvider {
                                     secondName: "Anderson",
                                     phoneNumber: "+49 (151) 630-55555",
                                     imageName: "1",
-                                    isAccountBlocked: false,
-                                    isFavorite: true
+                                    isAccountBlocked: false
         ),
         saveContact: { _ in })
     }

@@ -18,11 +18,11 @@ struct FavoritsScreen: View {
     var body: some View {
             NavigationView{
                 List {
-                    ForEach(contactsManager.contacts.filter { $0.isFavorite }) { contact in
+                    ForEach(contactsManager.favourites, id: \.self) { favouriteId in
                         NavigationLink(
-                            destination: ContactPageScreen(contactModel: contact)
+                            destination: ContactPageScreen(contactModel: contactsManager.getContactByID(id: favouriteId)!)
                         ){
-                            Text("\(contact.firstName) \(contact.secondName)")
+                            Text("\(contactsManager.getContactByID(id: favouriteId)!.firstName) \(contactsManager.getContactByID(id: favouriteId)!.secondName)")
                         }
                     }
                     .onDelete { indexSet in

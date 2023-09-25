@@ -37,7 +37,7 @@ struct BlockContactButton: View {
 struct BlockContactButton_Previews: PreviewProvider {
     static var previews: some View {
         let neo = ContactModel(
-            id: UUID(), firstName: "Anastasia", secondName: "Che", phoneNumber: "+49 (111) 630-11111", imageName: "1", isAccountBlocked: false, isFavorite: true
+            id: UUID(), firstName: "Anastasia", secondName: "Che", phoneNumber: "+49 (111) 630-11111", imageName: "1", isAccountBlocked: false
         )
         BlockContactButton(contact: neo)
             .padding(20)

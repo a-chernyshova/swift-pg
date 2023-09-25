@@ -28,7 +28,7 @@ struct ContactEditScreen: View {
 
 struct ContactEditScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let tempContact = ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558", imageName: "1", isAccountBlocked: false, isFavorite: true)
+        let tempContact = ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-57558", imageName: "1", isAccountBlocked: false)
         ContactEditScreen(contact: tempContact, saveContact: { _ in })
     }
 }

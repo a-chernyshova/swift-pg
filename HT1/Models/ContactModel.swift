@@ -14,7 +14,6 @@ struct ContactModel: Identifiable {
     var phoneNumber: String
     var imageName: String
     var isAccountBlocked: Bool
-    var isFavorite: Bool
 }
 
 extension ContactModel {
@@ -26,8 +25,7 @@ extension ContactModel {
             secondName: "",
             phoneNumber: "",
             imageName: "",
-            isAccountBlocked: false,
-            isFavorite: false
+            isAccountBlocked: false
         )
     }
 }
