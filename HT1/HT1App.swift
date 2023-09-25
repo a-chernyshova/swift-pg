@@ -19,11 +19,26 @@ struct HT1App: App {
     var body: some Scene {
         WindowGroup {
             ZStack{
-                ContactsScreen()
-                if callScreenManager.isScreenVisible, let contact = callScreenManager.contact {
-                    CallScreen(contactModel: contact)
+                TabView {
+                    ContactsScreen()
+                        .tabItem {
+                            Label("Contacts", systemImage: "person.crop.circle.fill")
+                        }
+                    FavoritsScreen()
+                        .tabItem {
+                            Label("Favourites", systemImage: "star.fill")
+                        }
+                    TouchPadScreen()
+                        .tabItem{
+                            Label("Keypad", systemImage: "keyboard")
+                        }
                 }
-            }.environmentObject(callScreenManager)
+                if callScreenManager.isScreenVisible {
+                    CallPageScreen()
+                }
+                
+            }
+            .environmentObject(callScreenManager)
             .environmentObject(contactsManager)
         }
     }

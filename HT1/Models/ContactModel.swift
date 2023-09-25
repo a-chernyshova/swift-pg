@@ -15,3 +15,17 @@ struct ContactModel: Identifiable {
     var imageName: String
     var isAccountBlocked: Bool
 }
+
+extension ContactModel {
+    // creatin a new empty contact
+    static func createNewContact() -> ContactModel {
+        ContactModel(
+            id: UUID(),
+            firstName: "",
+            secondName: "",
+            phoneNumber: "",
+            imageName: "",
+            isAccountBlocked: false
+        )
+    }
+}

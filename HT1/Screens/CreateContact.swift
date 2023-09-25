@@ -14,7 +14,7 @@ struct CreateContact: View {
     let saveContact: (ContactModel) -> Void
     
     var body: some View {
-        Text("WIP: a contact create form will be here").foregroundColor(.red)
+        Text("Create a new contact").foregroundColor(.black)
         Form{
             Section{
                 TextField("First Name", text: $newContact.firstName)

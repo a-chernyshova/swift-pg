@@ -7,9 +7,14 @@
 
 import SwiftUI
 
+
 struct CallPageScreen: View {
+    
     //MARK: props
-    var contactModel: ContactModel
+    // support calling existing contact or a new phonenumber, one or another should be passed to the view
+    var contactModel: ContactModel?
+    var phoneNumber: String?
+
     
     @EnvironmentObject
     var callScreenManager: CallScreenManager
@@ -34,12 +39,10 @@ struct CallPageScreen: View {
                         Image(systemName: "person.fill")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 60, height: 60)
-                            .shadow(color: .black, radius: 2)
-                    }
+                            .frame(width: 60, height: 60)                    }
                 }.padding(.vertical, 42)
                 HStack{
-                    Text(contactModel.phoneNumber)
+                    Text(chooseTextToDisplay())
                         .font(.largeTitle)
                         .foregroundColor(.white)
                 }
@@ -76,13 +79,23 @@ struct CallPageScreen: View {
                                          backgroundColor: .red,
                                          state: true,
                                          action: {
-                                            callScreenManager.contact = nil
-                                            callScreenManager.isScreenVisible = false
+                                            callScreenManager.state = .empty
                         })
                     .padding(.vertical, 64)
                 }
                 Spacer()
             }
+        }
+    }
+    
+    func chooseTextToDisplay() -> String {
+        switch callScreenManager.state {
+            case .contact(let contact):
+                return "\(contact.firstName) \(contact.secondName)"
+            case .phoneNumber(let phoneNumber):
+                return phoneNumber
+            case .empty:
+                return "ERROR"
         }
     }
 }

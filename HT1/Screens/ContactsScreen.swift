@@ -9,49 +9,55 @@ import SwiftUI
 
 struct ContactsScreen: View {
     
-    @State
-    private var searchText = ""
+    @EnvironmentObject var contactsManager: ContactScreenManager
+    @State private var searchText = ""
+    @State var currentSelection: UUID? = nil
     
-    @EnvironmentObject
-    var contactsManager: ContactScreenManager
+    private let newContactId: UUID = UUID()
     
     var body: some View {
         NavigationView{
             List {
-                Section(header: ListHeader(), footer: ListFooter()) {
-                    ForEach(filteredNames) { contact in
-                        NavigationLink(
-                            destination: ContactPageScreen(contactModel: contact)
-                                .toolbar{
-                                    NavigationLink(
-                                        destination: ContactEditScreen(
-                                            contact: contact,
-                                            saveContact: { contact in  contactsManager.save(contact: contact)})
-                                    ){
-                                        Text("Edit")
-                                    }
-                                }
-                        ){
-                            Text("\(contact.firstName) \(contact.secondName)")
-                        }
-                    }
-                }
-               
-                
-            }.searchable(text: $searchText, prompt: "Search a contact")
-                .toolbar{
+                ForEach(filteredNames) { contact in
                     NavigationLink(
-                        destination: CreateContact(
-                            newContact: contactsManager.newContact,
-                            saveContact: { newContact in contactsManager.create(newContact: newContact) })
-                    ) {
-                        Text("New")
+                        destination: ContactPageScreen(contactModel: contact)
+                            .toolbar( content: { NavigationLink(
+                                destination:
+                                    ContactEditScreen(
+                                        contact: contact,
+                                        saveContact: { newContact in  contactsManager.save(contact: newContact)}
+                                    )
+                            ){
+                                Text("Edit")
+                            }
+                            }),
+                        tag: contact.id,
+                        selection: $currentSelection
+                    ){
+                        Text("\(contact.firstName) \(contact.secondName)")
                     }
                 }
+                .onDelete { indexSet in
+                    contactsManager.deleteContact(indexSet: indexSet)
+                }
+            }.searchable(text: $searchText, prompt: "Search a contact")
+                .toolbar( content: { NavigationLink(
+                    destination: CreateContact(
+                        newContact: ContactModel.createNewContact(),
+                        saveContact: { newContact in
+                            contactsManager.create(newContact: newContact)
+                            currentSelection = nil
+                        }
+                    ),
+                    tag: newContactId,
+                    selection: $currentSelection
+                ){
+                    Text("New")
+                }
+            })
             .navigationBarTitle("Contacts", displayMode: .inline)
             .navigationBarItems(leading:Button(action: {}) {Image(systemName: "magazine").imageScale(.large)})
         }
-        
     }
     
     
@@ -73,12 +79,12 @@ struct ContactsScreen: View {
     }
     
     var filteredNames: Array<ContactModel>{
-            if searchText.isEmpty {
-                return contactsManager.contacts
-            } else {
-                return contactsManager.contacts.filter { $0.firstName.contains(searchText) ||  $0.secondName.contains(searchText) }
-            }
+        if searchText.isEmpty {
+            return contactsManager.contacts
+        } else {
+            return contactsManager.contacts.filter { $0.firstName.contains(searchText) || $0.secondName.contains(searchText) }
         }
+    }
 }
 
 struct ContactsScreen_Previews: PreviewProvider {

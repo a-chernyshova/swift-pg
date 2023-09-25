@@ -10,14 +10,10 @@ import Foundation
 class ContactScreenManager: ObservableObject {
     
     @Published
-    var contacts: Array<ContactModel> = generateContacts(n: 25)
+    var contacts: Array<ContactModel> = generateContacts(n: 5)
+    
     @Published
-    var newContact: ContactModel = ContactModel(id: UUID(),
-                                               firstName: "",
-                                               secondName: "",
-                                               phoneNumber: "",
-                                                imageName: "",
-                                                isAccountBlocked: false)
+    var favourites: Array<UUID> = []
     
     static func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyz"
@@ -32,12 +28,14 @@ class ContactScreenManager: ObservableObject {
     static func generateContacts(n: Int) -> Array<ContactModel> {
         var contList: Array<ContactModel> = Array()
         for _ in 1...n {
-            contList.append(ContactModel(id: UUID(),
-                                        firstName: randomString(length: Int.random(in: 4..<6)),
-                                        secondName: randomString(length: Int.random(in: 4..<9)),
-                                        phoneNumber: "+\(Int.random(in: 0..<9)) (\(randomDigitString(length: 3))) \(randomDigitString(length: 3))-\(randomDigitString(length: 4))",
-                                         imageName: "\(Int.random(in: 1..<9))",
-                                         isAccountBlocked: false
+            contList.append(
+                ContactModel(
+                    id: UUID(),
+                    firstName: randomString(length: Int.random(in: 4..<6)),
+                    secondName: randomString(length: Int.random(in: 4..<9)),
+                    phoneNumber: "+\(Int.random(in: 0..<9)) (\(randomDigitString(length: 3))) \(randomDigitString(length: 3))-\(randomDigitString(length: 4))",
+                    imageName: "\(Int.random(in: 1..<9))",
+                    isAccountBlocked: false
                 )
             )
         }
@@ -56,14 +54,51 @@ class ContactScreenManager: ObservableObject {
     }
     
     func deleteContact(contactToDelete: ContactModel) {
-        let index = contacts.firstIndex(where: { $0.id  == contactToDelete.id})
+        // remove the contact from favorites first
+        if let index = favourites.firstIndex(of: contactToDelete.id) {
+            favourites.remove(at: index)
+        }
+        // remove the contact from list of all contacts
+        var index = contacts.firstIndex(where: { $0.id  == contactToDelete.id})
         if let index = index {
             contacts.remove(at: index)
         }
     }
     
-//    let contactList: Array<ContactModel> = [
-//        ContactModel(id: UUID(), firstName: "Thomas", secondName: "Anderson", phoneNumber: "+49 (151) 630-11111", imageName: "1"),
-//        ContactModel(id: UUID(), firstName: "Darya", secondName: "Che", phoneNumber: "+7 (960) 239-2222", imageName: "1")
-//    ]
+    func getContactByID(id: UUID) -> ContactModel? {
+        let index = contacts.firstIndex(where: { $0.id  == id})
+        if let index = index {
+            return contacts[index]
+        }
+        return nil
+    }
+    
+    func addToFavourites(toFavourites: ContactModel) {
+        favourites.append(toFavourites.id)
+    }
+    
+    func unfavoure(indexSet: IndexSet) {
+        favourites.remove(atOffsets: indexSet)
+        
+    }
+    
+    func deleteContact(indexSet: IndexSet) {
+        // by offset get contact id; check if this id is in favourties, remove it from there; then remove from contactList
+        indexSet.forEach { (i) in
+            let contactId = contacts[i].id
+            if let index = favourites.firstIndex(of: contactId) {
+                favourites.remove(at: index)
+            }
+        }
+        contacts.remove(atOffsets: indexSet)
+    }
+    
+    func changeStateLock(contact: ContactModel) {
+        var updatedContact = contact
+        updatedContact.isAccountBlocked = !contact.isAccountBlocked
+        let index = contacts.firstIndex(where: { $0.id  == contact.id})
+        if let index = index {
+            contacts[index] = updatedContact
+        }
+    }
 }

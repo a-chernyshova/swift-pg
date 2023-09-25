@@ -10,6 +10,8 @@ import SwiftUI
 struct TouchPadScreen: View {
     @State
     var tempString: String = ""
+    @EnvironmentObject
+    var callScreenManager: CallScreenManager
     
     var keyBorad = ["1": "", "2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"]
     
@@ -57,19 +59,17 @@ struct TouchPadScreen: View {
                                      backgroundColor: .green,
                                      state: true,
                                      action: {
-//                                        callScreenManager.contact = nil
-//                                        callScreenManager.isScreenVisible = false
+                    callScreenManager.state = .phoneNumber(tempString)
                     })
                 .padding(.vertical, 64)
             }
         }
-        
-        
     }
 }
 
 struct TouchPadScreen_Previews: PreviewProvider {
     static var previews: some View {
         TouchPadScreen()
+            .environmentObject(CallScreenManager())
     }
 }
