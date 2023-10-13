@@ -11,6 +11,9 @@
 		374EFF232AA3CAD500C53F12 /* CreateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EFF222AA3CAD500C53F12 /* CreateContact.swift */; };
 		37AF32D22AB4B45400DB08FE /* FavoritsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF32D12AB4B45400DB08FE /* FavoritsScreen.swift */; };
 		37AF32D42AB4BF0500DB08FE /* ContactCommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF32D32AB4BF0500DB08FE /* ContactCommonButton.swift */; };
+		37F4D9132AD84ECF00251AEC /* ContactScreenManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4D9122AD84ECF00251AEC /* ContactScreenManagerTests.swift */; };
+		37F4D9142AD84F4400251AEC /* ContactScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB611DB2A8EA075009640BA /* ContactScreenManager.swift */; };
+		37F4D9152AD84FA800251AEC /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A65667D2A85895D007732F7 /* ContactModel.swift */; };
 		8A6566712A7BA62D007732F7 /* ContactPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6566702A7BA62D007732F7 /* ContactPageScreen.swift */; };
 		8A6566732A7BA6BC007732F7 /* ContactPageActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6566722A7BA6BC007732F7 /* ContactPageActionButton.swift */; };
 		8A6566752A817AED007732F7 /* CallPageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6566742A817AED007732F7 /* CallPageScreen.swift */; };
@@ -54,6 +57,7 @@
 		374EFF222AA3CAD500C53F12 /* CreateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContact.swift; sourceTree = "<group>"; };
 		37AF32D12AB4B45400DB08FE /* FavoritsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsScreen.swift; sourceTree = "<group>"; };
 		37AF32D32AB4BF0500DB08FE /* ContactCommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCommonButton.swift; sourceTree = "<group>"; };
+		37F4D9122AD84ECF00251AEC /* ContactScreenManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactScreenManagerTests.swift; sourceTree = "<group>"; };
 		8A6566702A7BA62D007732F7 /* ContactPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPageScreen.swift; sourceTree = "<group>"; };
 		8A6566722A7BA6BC007732F7 /* ContactPageActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPageActionButton.swift; sourceTree = "<group>"; };
 		8A6566742A817AED007732F7 /* CallPageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPageScreen.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				8ACF35222A72B8D200F8E156 /* HT1Tests.swift */,
+				37F4D9122AD84ECF00251AEC /* ContactScreenManagerTests.swift */,
 			);
 			path = HT1Tests;
 			sourceTree = "<group>";
@@ -364,7 +369,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F4D9132AD84ECF00251AEC /* ContactScreenManagerTests.swift in Sources */,
 				8ACF35232A72B8D200F8E156 /* HT1Tests.swift in Sources */,
+				37F4D9152AD84FA800251AEC /* ContactModel.swift in Sources */,
+				37F4D9142AD84F4400251AEC /* ContactScreenManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,3 +29,14 @@ extension ContactModel {
         )
     }
 }
+
+extension ContactModel: Equatable {
+    static func == (lhs: ContactModel, rhs: ContactModel) -> Bool {
+        lhs.firstName == rhs.firstName &&
+        lhs.secondName == rhs.secondName &&
+        lhs.phoneNumber == rhs.phoneNumber &&
+        lhs.isAccountBlocked == rhs.isAccountBlocked &&
+        lhs.imageName == rhs.imageName
+    }
+}
+

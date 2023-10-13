@@ -4,7 +4,7 @@
 //
 //  Created by Anastasia Chernyshova on 17.08.23.
 //
-import Foundation
+import SwiftUI
 
 /// Manager for providing contact list
 class ContactScreenManager: ObservableObject {
@@ -59,7 +59,7 @@ class ContactScreenManager: ObservableObject {
             favourites.remove(at: index)
         }
         // remove the contact from list of all contacts
-        var index = contacts.firstIndex(where: { $0.id  == contactToDelete.id})
+        let index = contacts.firstIndex(where: { $0.id  == contactToDelete.id})
         if let index = index {
             contacts.remove(at: index)
         }
